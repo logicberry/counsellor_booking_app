@@ -9,6 +9,8 @@ class CLTextField extends StatefulWidget {
   final Widget? icon, prefix;
   final TextInputType? inputType;
   final bool isPassword;
+  final Color? border, inputColor, labelColor;
+  final Widget? suffixIcon;
 
   const CLTextField(
       {super.key,
@@ -18,7 +20,11 @@ class CLTextField extends StatefulWidget {
       this.labeltext,
       this.icon,
       this.isPassword = false,
-      this.prefix});
+      this.prefix,
+      this.border,
+      this.inputColor,
+      this.labelColor,
+      this.suffixIcon});
 
   @override
   State<CLTextField> createState() => _CLTextFieldState();
@@ -41,12 +47,14 @@ class _CLTextFieldState extends State<CLTextField> {
 
   @override
   Widget build(BuildContext context) {
-    const UnderlineInputBorder defaultOutlineInputBorder = UnderlineInputBorder(
-      borderSide: BorderSide(width: 1, color: AppColors.primaryColor),
+    UnderlineInputBorder defaultOutlineInputBorder = UnderlineInputBorder(
+      borderSide:
+          BorderSide(width: 1, color: widget.border ?? AppColors.primaryColor),
     );
 
-    const UnderlineInputBorder focusedOutlineInputBorder = UnderlineInputBorder(
-      borderSide: BorderSide(width: 1, color: AppColors.primaryColor),
+    UnderlineInputBorder focusedOutlineInputBorder = UnderlineInputBorder(
+      borderSide:
+          BorderSide(width: 1, color: widget.border ?? AppColors.primaryColor),
     );
     return SizedBox(
       height: 50.h,
@@ -55,7 +63,7 @@ class _CLTextFieldState extends State<CLTextField> {
         style: TextStyle(
             fontSize: 16.sp,
             fontFamily: 'Inter',
-            color: Colors.black,
+            color: widget.inputColor ?? Colors.black,
             letterSpacing: 1,
             decoration: TextDecoration.none,
             decorationStyle: TextDecorationStyle.dotted,
@@ -71,11 +79,11 @@ class _CLTextFieldState extends State<CLTextField> {
             floatingLabelStyle: Theme.of(context)
                 .textTheme
                 .bodyLarge
-                ?.copyWith(color: Colors.grey),
+                ?.copyWith(color: widget.labelColor ?? Colors.grey),
             labelStyle: Theme.of(context)
                 .textTheme
                 .bodyLarge
-                ?.copyWith(color: Colors.grey),
+                ?.copyWith(color: widget.labelColor ?? Colors.grey),
             hintStyle: Theme.of(context).textTheme.bodyLarge,
             prefixIcon: widget.prefix,
             suffix: (widget.isPassword)
@@ -86,6 +94,7 @@ class _CLTextFieldState extends State<CLTextField> {
                     ),
                   )
                 : null,
+            suffixIcon: widget.suffixIcon,
             border: defaultOutlineInputBorder,
             enabledBorder: defaultOutlineInputBorder,
             focusedBorder: focusedOutlineInputBorder),

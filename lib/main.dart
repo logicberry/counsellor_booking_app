@@ -1,3 +1,4 @@
+import 'package:counsellor/features/home/screens/homepage.dart';
 import 'package:counsellor/router.dart';
 // import 'package:device_preview/device_preview.dart';
 
@@ -7,7 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/core.dart';
-import 'features/authentication/screens/screens.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,10 +35,10 @@ class MyApp extends StatelessWidget {
               // locale: DevicePreview.locale(context),
               // builder: DevicePreview.appBuilder,
               title: 'Counsellor',
-              debugShowCheckedModeBanner: false, 
+              debugShowCheckedModeBanner: false,
               theme: AppTheme.theme,
               onGenerateRoute: (settings) => generateRoute(settings),
-              home: const OtpScreen(),
+              home: const HomePage(),
             ),
           );
         });

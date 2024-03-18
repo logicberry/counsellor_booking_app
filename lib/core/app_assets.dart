@@ -12,4 +12,5 @@ class AssetPath {
   static const String otp = '${assetPath}otp.png';
   static const String ellipse1 = '${assetPath}Ellipse1.png';
   static const String ellipse2 = '${assetPath}Ellipse2.png';
+  static const String profile = '${assetPath}profile-image.png';
 }

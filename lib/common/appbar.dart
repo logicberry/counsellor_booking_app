@@ -26,11 +26,17 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         leadingWidth: 100,
         backgroundColor: AppColors.primaryColor,
-        title: AppTheme.clText(title!, context,
-            size: 16,
-            textColor: AppColors.primaryColor,
-            fontWeight: FontWeight.w600),
-        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(''),
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Image.asset(AssetPath.profile),
+            ),
+          ],
+        ),
+        titleSpacing: 20,
         leading: implyLeading
             ? Container(
                 decoration: const BoxDecoration(
@@ -44,15 +50,6 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
                     )),
               )
             : null,
-        actions: action
-            ? [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.more_horiz,
-                      color: AppColors.primaryColor,
-                    ))
-              ]
-            : null);
+        actions: action ? [] : null);
   }
 }

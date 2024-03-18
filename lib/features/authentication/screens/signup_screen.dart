@@ -71,10 +71,6 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 Space.height(20.h),
                 const CLTextField(
-                  hintText: 'Name',
-                ),
-                Space.height(20.h),
-                const CLTextField(
                   hintText: 'Email Address',
                 ),
                 Space.height(20.h),
