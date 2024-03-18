@@ -7,6 +7,8 @@ import '../../../common/button.dart';
 import '../../../core/core.dart';
 
 class PatientProfileScreen extends StatelessWidget {
+    static const routeName = '/patientprofile-screen';
+
   const PatientProfileScreen({super.key});
 
   @override

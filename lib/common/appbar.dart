@@ -6,7 +6,7 @@ import '../core/core.dart';
 class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final bool implyLeading, action;
-  final void Function()? ontap;
+  final VoidCallback? ontap;
   final IconData icon;
   const CLAppBar({
     Key? key,

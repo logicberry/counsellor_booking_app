@@ -1,4 +1,6 @@
 import 'package:counsellor/features/authentication/screens/screens.dart';
+import 'package:counsellor/features/home/screens/counsellors.dart';
+import 'package:counsellor/features/home/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -47,6 +49,31 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
+      case PatientProfileScreen.routeName:
+      return PageTransition(
+        settings: routeSettings,
+        child: const PatientProfileScreen(),
+        type: PageTransitionType.rotate,
+        duration: const Duration(seconds: 1),
+        alignment: Alignment.bottomCenter,
+      );
+    case HomePage.routeName:
+      return PageTransition(
+        settings: routeSettings,
+        child: const HomePage(),
+        type: PageTransitionType.rotate,
+        duration: const Duration(seconds: 1),
+        alignment: Alignment.bottomCenter,
+      );
+    case CounsellorsListPage.routeName:
+      return PageTransition(
+        settings: routeSettings,
+        child: const CounsellorsListPage(),
+        type: PageTransitionType.rotate,
+        duration: const Duration(seconds: 1),
+        alignment: Alignment.bottomCenter,
+      );
+
     default:
       return MaterialPageRoute(
         settings: routeSettings,
