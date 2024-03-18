@@ -9,9 +9,9 @@ class AppTheme {
       ),
       scaffoldBackgroundColor: AppColors.white,
       textTheme: const TextTheme(),
-      fontFamily: 'Gilroy');
+      fontFamily: 'Inter');
 
-  static Text gilroyText(String text, BuildContext context,
+  static Text clText(String text, BuildContext context,
       {FontWeight? fontWeight,
       double? size,
       Color? textColor,
@@ -21,7 +21,7 @@ class AppTheme {
       text,
       textAlign: textAlign,
       style: TextStyle(
-          fontFamily: 'Gilroy',
+          fontFamily: 'Inter',
           fontSize: size?.h,
           fontWeight: fontWeight,
           color: textColor,

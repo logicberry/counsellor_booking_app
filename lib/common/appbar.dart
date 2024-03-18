@@ -25,7 +25,7 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
           elevation: 0,
           backgroundColor: Colors.transparent,
           leadingWidth: 30,
-          title: AppTheme.gilroyText(title!, context,
+          title: AppTheme.clText(title!, context,
               size: 16,
               textColor: AppColors.primaryColor,
               fontWeight: FontWeight.w600),

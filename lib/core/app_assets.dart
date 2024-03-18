@@ -10,4 +10,6 @@ class AssetPath {
   static const String logoGreen = '${assetPath}logo-green.png';
   static const String logoWhite = '${assetPath}logo-white.png';
   static const String otp = '${assetPath}otp.png';
+  static const String ellipse1 = '${assetPath}Ellipse1.png';
+  static const String ellipse2 = '${assetPath}Ellipse2.png';
 }

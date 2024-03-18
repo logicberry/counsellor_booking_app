@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'core/core.dart';
+import 'features/authentication/screens/welcome.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -14,12 +15,20 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
-       default:
+    case WelcomeScreen.routeName:
+      return PageTransition(
+        settings: routeSettings,
+        child: const WelcomeScreen(),
+        type: PageTransitionType.rotate,
+        duration: const Duration(seconds: 1),
+        alignment: Alignment.bottomCenter,
+      );
+    default:
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => Scaffold(
           body: Center(
-              child: AppTheme.gilroyText(
+              child: AppTheme.clText(
                   'Screen no dey 😒',
                   size: 20,
                   _,
