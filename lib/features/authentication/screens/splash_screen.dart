@@ -1,4 +1,4 @@
-import 'package:counsellor/features/authentication/screens/screens.dart';
+import 'package:counsellor/features/authentication/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void navigate() async {
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushNamedAndRemoveUntil(
-          context, SignUpScreen.routeName, (route) => false);
+          context, WelcomeScreen.routeName, (route) => false);
     });
   }
 

@@ -1,5 +1,6 @@
 import 'package:counsellor/common/appbar.dart';
 import 'package:counsellor/features/authentication/widgets/profile_field.dart';
+import 'package:counsellor/features/home/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,16 +8,17 @@ import '../../../common/button.dart';
 import '../../../core/core.dart';
 
 class PatientProfileScreen extends StatelessWidget {
-    static const routeName = '/patientprofile-screen';
+  static const routeName = '/patientprofile-screen';
 
   const PatientProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CLAppBar(
-        title: '',
+      appBar: CLAppBar(
+        titleYes: false,
         implyLeading: true,
+        ontap: () => Navigator.pop(context),
       ),
       backgroundColor: AppColors.primaryColor,
       body: SafeArea(
@@ -63,7 +65,7 @@ class PatientProfileScreen extends StatelessWidget {
                 Space.height(94),
                 CLButtton(
                   color: AppColors.white,
-                  onTap: () {},
+                  onTap: () => Navigator.pushNamed(context, HomePage.routeName),
                   borderColor: AppColors.primaryColor,
                   child: AppTheme.clText('Complete ✓', context,
                       size: 20, textColor: AppColors.primaryColor),

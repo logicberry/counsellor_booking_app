@@ -13,7 +13,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return PageTransition(
         settings: routeSettings,
         child: const SplashScreen(),
-        type: PageTransitionType.rotate,
+        type: PageTransitionType.rightToLeftWithFade,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
@@ -21,15 +21,15 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return PageTransition(
         settings: routeSettings,
         child: const WelcomeScreen(),
-        type: PageTransitionType.rotate,
+        type: PageTransitionType.bottomToTop,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
-      case SignInScreen.routeName:
+    case SignInScreen.routeName:
       return PageTransition(
         settings: routeSettings,
         child: const SignInScreen(),
-        type: PageTransitionType.rotate,
+        type: PageTransitionType.fade,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
@@ -37,7 +37,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return PageTransition(
         settings: routeSettings,
         child: const SignUpScreen(),
-        type: PageTransitionType.rotate,
+        type: PageTransitionType.bottomToTop,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
@@ -45,15 +45,15 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return PageTransition(
         settings: routeSettings,
         child: const OtpScreen(),
-        type: PageTransitionType.rotate,
+        type: PageTransitionType.fade,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
-      case PatientProfileScreen.routeName:
+    case PatientProfileScreen.routeName:
       return PageTransition(
         settings: routeSettings,
         child: const PatientProfileScreen(),
-        type: PageTransitionType.rotate,
+        type: PageTransitionType.bottomToTop,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
@@ -61,7 +61,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return PageTransition(
         settings: routeSettings,
         child: const HomePage(),
-        type: PageTransitionType.rotate,
+        type: PageTransitionType.fade,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );

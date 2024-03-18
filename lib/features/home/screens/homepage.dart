@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: CLAppBar(
+          titleYes: true,
           title: '',
           implyLeading: true,
           icon: Icons.menu,
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                                   radius: 27.r,
                                   backgroundColor: backgroundColors[index],
                                   child: Image.asset(icons[index])),
-                              Space.height(10),
+                              Space.height(8),
                               AppTheme.clText(texts[index], context,
                                   size: 11, fontWeight: FontWeight.w500),
                             ],

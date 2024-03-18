@@ -7,19 +7,20 @@ import '../../../core/core.dart';
 class AuthButton extends StatelessWidget {
   final String text;
   final Color color, textColor, arrowColor;
+  final void Function() ontap;
   const AuthButton(
       {super.key,
       required this.text,
       required this.color,
       this.textColor = AppColors.white,
-      this.arrowColor = AppColors.white});
+      this.arrowColor = AppColors.white, required this.ontap});
 
   @override
   Widget build(BuildContext context) {
     return CLButtton(
         borderColor: AppColors.primaryColor,
         color: color,
-        onTap: () {},
+        onTap: ontap,
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           AppTheme.clText(text, context, size: 20.h, textColor: textColor),

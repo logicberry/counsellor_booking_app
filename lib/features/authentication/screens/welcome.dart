@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/core.dart';
+import 'screens.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const routeName = '/welcome-screen';
@@ -33,16 +34,18 @@ class WelcomeScreen extends StatelessWidget {
           ],
         ),
         Space.height(130.h),
-        const AuthButton(
+        AuthButton(
           text: 'Sign In',
           color: AppColors.primaryColor,
+          ontap: () => Navigator.pushNamed(context, SignInScreen.routeName),
         ),
         Space.height(20.h),
-        const AuthButton(
+        AuthButton(
             text: 'Sign Up',
             color: AppColors.white,
             textColor: AppColors.primaryColor,
-            arrowColor: AppColors.primaryColor),
+            arrowColor: AppColors.primaryColor,
+            ontap: () => Navigator.pushNamed(context, SignUpScreen.routeName)),
       ],
     ));
   }

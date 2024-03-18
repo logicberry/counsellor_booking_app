@@ -1,5 +1,6 @@
 import 'package:counsellor/common/button.dart';
 import 'package:counsellor/common/textfield.dart';
+import 'package:counsellor/features/authentication/screens/otp_screen.dart';
 import 'package:counsellor/features/authentication/widgets/auth_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -79,8 +80,11 @@ class SignUpScreen extends StatelessWidget {
                   isPassword: true,
                 ),
                 Space.height(32.h),
-                const AuthButton(
-                    text: 'Sign up', color: AppColors.primaryColor),
+                AuthButton(
+                    ontap: () =>
+                        Navigator.pushNamed(context, OtpScreen.routeName),
+                    text: 'Sign up',
+                    color: AppColors.primaryColor),
                 Space.height(32.h),
               ],
             ),

@@ -5,7 +5,7 @@ import '../core/core.dart';
 
 class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
-  final bool implyLeading, action;
+  final bool implyLeading, action, titleYes;
   final VoidCallback? ontap;
   final IconData icon;
   const CLAppBar({
@@ -14,7 +14,7 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.action = false,
     this.implyLeading = false,
     this.ontap,
-    this.icon = Icons.arrow_back,
+    this.icon = Icons.arrow_back, required this.titleYes,
   }) : super(key: key);
 
   @override
@@ -26,16 +26,18 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         leadingWidth: 100,
         backgroundColor: AppColors.primaryColor,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(''),
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Image.asset(AssetPath.profile),
-            ),
-          ],
-        ),
+        title: titleYes
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(''),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Image.asset(AssetPath.profile),
+                  ),
+                ],
+              )
+            : const Text(''),
         titleSpacing: 20,
         leading: implyLeading
             ? Container(

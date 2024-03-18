@@ -1,5 +1,6 @@
 import 'package:counsellor/common/appbar.dart';
 import 'package:counsellor/common/button.dart';
+import 'package:counsellor/features/authentication/screens/form_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
@@ -37,9 +38,10 @@ class OtpScreen extends StatelessWidget {
           ),
         ));
     return Scaffold(
-        appBar: const CLAppBar(
-          title: '',
+        appBar: CLAppBar(
+          titleYes: false,
           implyLeading: true,
+          ontap: () => Navigator.pop(context),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -88,7 +90,8 @@ class OtpScreen extends StatelessWidget {
               Space.height(43),
               CLButtton(
                 color: AppColors.primaryColor,
-                onTap: () {},
+                onTap: () => Navigator.pushNamed(
+                    context, PatientProfileScreen.routeName),
                 borderColor: AppColors.primaryColor,
                 child: AppTheme.clText('verify', context, size: 20),
               )

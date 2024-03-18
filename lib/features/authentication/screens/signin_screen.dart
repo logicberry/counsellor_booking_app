@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/core.dart';
+import 'screens.dart';
 
 class SignInScreen extends StatelessWidget {
   static const routeName = '/signin-screen';
@@ -98,7 +99,13 @@ class SignInScreen extends StatelessWidget {
                 AppTheme.clText('Forgot Password ?', context,
                     textColor: AppColors.primaryColor, size: 14),
                 Space.height(32.h),
-                const AuthButton(text: 'Sign in', color: AppColors.primaryColor)
+                AuthButton(
+                    ontap: () => Navigator.pushNamed(
+                          context,
+                          OtpScreen.routeName,
+                        ),
+                    text: 'Sign in',
+                    color: AppColors.primaryColor)
               ],
             ),
           )

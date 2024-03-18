@@ -1,5 +1,6 @@
 import 'package:counsellor/features/home/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/core.dart';
 
@@ -14,14 +15,12 @@ class CounsellorsListPage extends StatelessWidget {
       appBar: AppBar(
           elevation: 0,
           backgroundColor: AppColors.primaryColor,
-          title: AppTheme.clText(
-            'Counsellors',
-            context,
-          ),
+          title: AppTheme.clText('Counsellors', context, size: 18),
           centerTitle: true,
           leading: IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back,
+              size: 20.h,
             ),
             onPressed: () {
               Navigator.pop(context);
