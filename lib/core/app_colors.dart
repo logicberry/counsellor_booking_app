@@ -9,4 +9,7 @@ class AppColors {
   static const Color darkGrey = Color(0xFF3A3A3A);
   static const Color lightGrey = Color(0xFFB9B9B9);
   static const Color lightblue = Color(0xFF32EBE6);
+  static const Color lightpink = Color(0xFFFEF1EB);
+  static const Color ash = Color(0xFFF3F6FB);
+  static const Color search = Color(0xFFF7F7FD);
 }
