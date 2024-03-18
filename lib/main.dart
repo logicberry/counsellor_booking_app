@@ -14,12 +14,11 @@ void main() {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(
-    // DevicePreview(
-    //   enabled: !kReleaseMode,
-    //   builder: (context) => const MyApp(),
-    // ),
-    const MyApp()
-  );
+      // DevicePreview(
+      //   enabled: !kReleaseMode,
+      //   builder: (context) => const MyApp(),
+      // ),
+      const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(375, 812),
+        designSize: const Size(393, 852),
         builder: (ctx, child) {
           return GestureDetector(
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),

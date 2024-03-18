@@ -20,7 +20,7 @@ class CLButtton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           elevation: 4,
           backgroundColor: color,
-          fixedSize: Size(305.w, 72.h),
+          fixedSize: Size(320.w, 72.h),
           shape: RoundedRectangleBorder(
               side: BorderSide(color: borderColor!),
               borderRadius: BorderRadius.circular(28.r))),
