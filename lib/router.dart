@@ -39,6 +39,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
+    case OtpScreen.routeName:
+      return PageTransition(
+        settings: routeSettings,
+        child: const OtpScreen(),
+        type: PageTransitionType.rotate,
+        duration: const Duration(seconds: 1),
+        alignment: Alignment.bottomCenter,
+      );
     default:
       return MaterialPageRoute(
         settings: routeSettings,

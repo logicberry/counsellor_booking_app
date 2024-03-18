@@ -35,10 +35,10 @@ class MyApp extends StatelessWidget {
               // locale: DevicePreview.locale(context),
               // builder: DevicePreview.appBuilder,
               title: 'Counsellor',
-              debugShowCheckedModeBanner: false,
+              debugShowCheckedModeBanner: false, 
               theme: AppTheme.theme,
               onGenerateRoute: (settings) => generateRoute(settings),
-              home: const SplashScreen(),
+              home: const OtpScreen(),
             ),
           );
         });
