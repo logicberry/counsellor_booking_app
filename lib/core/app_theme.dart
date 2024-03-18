@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'app_colors.dart';
 
 class AppTheme {
   static ThemeData theme = ThemeData(
@@ -22,7 +23,7 @@ class AppTheme {
       textAlign: textAlign,
       style: TextStyle(
           fontFamily: 'Inter',
-          fontSize: size?.h,
+          fontSize: size?.sp,
           fontWeight: fontWeight,
           color: textColor,
           height: lineheight),

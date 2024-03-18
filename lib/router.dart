@@ -23,6 +23,22 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
+      case SignInScreen.routeName:
+      return PageTransition(
+        settings: routeSettings,
+        child: const SignInScreen(),
+        type: PageTransitionType.rotate,
+        duration: const Duration(seconds: 1),
+        alignment: Alignment.bottomCenter,
+      );
+    case SignUpScreen.routeName:
+      return PageTransition(
+        settings: routeSettings,
+        child: const SignUpScreen(),
+        type: PageTransitionType.rotate,
+        duration: const Duration(seconds: 1),
+        alignment: Alignment.bottomCenter,
+      );
     default:
       return MaterialPageRoute(
         settings: routeSettings,

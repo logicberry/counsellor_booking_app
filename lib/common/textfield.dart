@@ -42,11 +42,11 @@ class _CLTextFieldState extends State<CLTextField> {
   @override
   Widget build(BuildContext context) {
     const UnderlineInputBorder defaultOutlineInputBorder = UnderlineInputBorder(
-      borderSide: BorderSide(width: 1, color: Colors.red),
+      borderSide: BorderSide(width: 1, color: AppColors.primaryColor),
     );
 
     const UnderlineInputBorder focusedOutlineInputBorder = UnderlineInputBorder(
-      borderSide: BorderSide(width: 1, color: Colors.blue),
+      borderSide: BorderSide(width: 1, color: AppColors.primaryColor),
     );
     return SizedBox(
       height: 50.h,
@@ -54,8 +54,8 @@ class _CLTextFieldState extends State<CLTextField> {
         obscureText: (widget.isPassword) ? !_obscureText : _obscureText,
         style: TextStyle(
             fontSize: 16.sp,
-            fontFamily: 'Avenir',
-            color: Colors.green,
+            fontFamily: 'Inter',
+            color: Colors.black,
             letterSpacing: 1,
             decoration: TextDecoration.none,
             decorationStyle: TextDecorationStyle.dotted,
@@ -65,29 +65,31 @@ class _CLTextFieldState extends State<CLTextField> {
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
             labelText: widget.hintText,
-            hintText: widget.hintText,
-            contentPadding: const EdgeInsets.all(5),
-            isDense: true,
-            floatingLabelStyle: Theme.of(context).textTheme.bodySmall,
-            labelStyle: Theme.of(context).textTheme.bodySmall,
-            hintStyle: Theme.of(context).textTheme.bodySmall,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            contentPadding: const EdgeInsets.only(top: 3),
+            // isDense: true,
+            floatingLabelStyle: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: Colors.grey),
+            labelStyle: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: Colors.grey),
+            hintStyle: Theme.of(context).textTheme.bodyLarge,
             prefixIcon: widget.prefix,
             suffix: (widget.isPassword)
                 ? GestureDetector(
                     onTap: pass,
-                    child: Text(
-                      _obscureText ? 'Hide' : 'Show',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.copyWith(color: Colors.blue),
+                    child: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.visibility,
                     ),
                   )
                 : null,
             border: defaultOutlineInputBorder,
             enabledBorder: defaultOutlineInputBorder,
             focusedBorder: focusedOutlineInputBorder),
-        cursorColor: Colors.blue,
+        cursorColor: AppColors.primaryColor,
       ),
     );
   }

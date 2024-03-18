@@ -1,7 +1,4 @@
-import 'package:counsellor/core/app_assets.dart';
-import 'package:counsellor/core/app_colors.dart';
-import 'package:counsellor/core/app_theme.dart';
-import 'package:counsellor/features/authentication/screens/welcome.dart';
+import 'package:counsellor/features/authentication/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void navigate() async {
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushNamedAndRemoveUntil(
-          context, WelcomeScreen.routeName, (route) => false);
+          context, SignUpScreen.routeName, (route) => false);
     });
   }
 
@@ -40,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 128.h,
                 width: 128.w,
                 child: Image.asset(AssetPath.logoGreen)),
-                Space.height(8.h),
+            Space.height(8.h),
             AppTheme.clText(
                 size: 24,
                 fontWeight: FontWeight.w400,

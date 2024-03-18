@@ -10,7 +10,8 @@ class CLButtton extends StatelessWidget {
       {super.key,
       required this.child,
       required this.color,
-      required this.onTap, this.borderColor});
+      required this.onTap,
+      this.borderColor});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class CLButtton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           elevation: 4,
           backgroundColor: color,
-          fixedSize: Size(302.w, 72.h),
+          fixedSize: Size(305.w, 72.h),
           shape: RoundedRectangleBorder(
               side: BorderSide(color: borderColor!),
               borderRadius: BorderRadius.circular(28.r))),
