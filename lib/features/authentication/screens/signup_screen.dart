@@ -51,9 +51,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         message: 'Please enter a valid student email address.',
       );
     } else {
-       _prefs.setString('email', email);
+      _prefs.setString('email', email);
       _prefs.setString('password', password);
-      Navigator.pushNamed(context, OtpScreen.routeName);
+      Navigator.pushNamed(context, OtpScreen.routeName,
+          arguments: OtpScreen(email: email));
     }
   }
 

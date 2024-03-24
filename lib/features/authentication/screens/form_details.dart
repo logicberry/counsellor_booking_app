@@ -67,9 +67,11 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
 
     if (phone.isEmpty || firstName.isEmpty || lastName.isEmpty || dob.isEmpty) {
       errorMessage(context: context, message: 'Please fill in all fields.');
+      return;
     }
     if (_imageFile == null) {
       errorMessage(context: context, message: 'Please select an image.');
+      return;
     } else {
       // Save profile details along with authentication credentials
       _prefs.setString('phone', phone);

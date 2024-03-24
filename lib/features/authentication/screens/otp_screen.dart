@@ -8,8 +8,9 @@ import 'package:pinput/pinput.dart';
 import '../../../core/core.dart';
 
 class OtpScreen extends StatelessWidget {
+  final String email;
   static const routeName = '/otp-screen';
-  const OtpScreen({super.key});
+  const OtpScreen({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +60,8 @@ class OtpScreen extends StatelessWidget {
                       size: 16,
                       fontWeight: FontWeight.w400,
                       textColor: AppColors.darkGrey),
-                  AppTheme.clText('design@test.com', context,
-                      size: 16,
+                  AppTheme.clText(email, context,
+                      size: 14,
                       fontWeight: FontWeight.w500,
                       textColor: AppColors.darkGrey),
                 ],

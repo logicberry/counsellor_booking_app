@@ -2,23 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/core.dart';
-import '../screens/counsellor_info_screen.dart';
 
 class DoctorCard extends StatelessWidget {
   final String name, profession;
   final Color color;
   final String image;
+  final VoidCallback ontap;
   const DoctorCard(
       {super.key,
       required this.color,
       required this.image,
       required this.name,
-      required this.profession});
+      required this.profession,
+      required this.ontap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, CounsellorInfoPage.routeName),
+      onTap: ontap,
       child: Container(
         height: 100.h,
         width: double.infinity,

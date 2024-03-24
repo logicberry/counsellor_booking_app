@@ -43,9 +43,13 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         alignment: Alignment.bottomCenter,
       );
     case OtpScreen.routeName:
+      final args = routeSettings.arguments as OtpScreen;
+
       return PageTransition(
         settings: routeSettings,
-        child: const OtpScreen(),
+        child: OtpScreen(
+          email: args.email,
+        ),
         type: PageTransitionType.fade,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
@@ -75,9 +79,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         alignment: Alignment.bottomCenter,
       );
     case CounsellorInfoPage.routeName:
+      final args = routeSettings.arguments as CounsellorInfoPage;
       return PageTransition(
         settings: routeSettings,
-        child: const CounsellorInfoPage(),
+        child: CounsellorInfoPage(
+          name: args.name,
+          title: args.title,
+          about: args.about,
+        ),
         type: PageTransitionType.scale,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,

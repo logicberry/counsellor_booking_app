@@ -8,8 +8,14 @@ import '../../../common/appbar.dart';
 
 class CounsellorInfoPage extends StatelessWidget {
   static const routeName = '/counsellorinfo-screen';
+  final String name, title, about;
 
-  const CounsellorInfoPage({super.key});
+  const CounsellorInfoPage({
+    super.key,
+    required this.name,
+    required this.about,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +56,10 @@ class CounsellorInfoPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AppTheme.clText('Dr. Mrs. Adebayo Faith', context,
+                            AppTheme.clText(name, context,
                                 size: 14, fontWeight: FontWeight.w500),
                             Space.height(5),
-                            AppTheme.clText('Career Counsellor', context,
+                            AppTheme.clText(title, context,
                                 textColor: AppColors.lightGrey, size: 12),
                             Space.height(20),
                             Image.asset(AssetPath.call),
@@ -136,9 +142,7 @@ class CounsellorInfoPage extends StatelessWidget {
                             AppTheme.clText('About', context,
                                 size: 16, fontWeight: FontWeight.w500),
                             Space.height(10),
-                            AppTheme.clText(
-                                "Dr. Omoleye Noah is not just a psychologist; he's your trusted companion on the journey to mental well-being.With a passion for understanding the intricacies of the human mind, Dr. Noah offers a unique blend of empathy and scientific expertise through our counseling app. Drawing from years of experience and a commitment to destigmatizing mental health, Dr. Noah creates a safe space for you to explore your thoughts and emotions. Whether you're struggling with anxiety, depression, or simply seeking guidance, Dr. Noah provides personalized support tailored to your needs.",
-                                context,
+                            AppTheme.clText(about, context,
                                 size: 13,
                                 textColor: AppColors.darkGrey.withOpacity(0.5)),
                             Space.height(41),
