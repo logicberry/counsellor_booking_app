@@ -3,6 +3,7 @@ import 'package:counsellor/common/drawer_nav.dart';
 import 'package:counsellor/features/home/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../core/core.dart';
 import '../widgets/search_field.dart';
@@ -18,6 +19,23 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  String? userName = '';
+  String? userImage = '';
+
+  @override
+  void initState() {
+    super.initState();
+    getUserInfo();
+  }
+
+  void getUserInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      userName = prefs.getString('firstName');
+      userImage = prefs.getString('image');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Color> backgroundColors = [
@@ -46,10 +64,14 @@ class _HomePageState extends State<HomePage> {
           implyLeading: true,
           icon: Icons.menu,
           action: true,
+          imageFile: userImage,
           ontap: () {
             _scaffoldKey.currentState?.openDrawer();
           }),
-      drawer: const SideMenu(),
+      drawer: SideMenu(
+        name: userName!,
+        image: userImage!,
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                     height: 85.h,
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
+                        padding: EdgeInsets.only(left: 20.0.w),
                         child: ListView.separated(
                           scrollDirection: Axis.horizontal,
                           itemCount: 4,

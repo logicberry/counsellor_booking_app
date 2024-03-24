@@ -4,6 +4,7 @@ import 'package:counsellor/features/authentication/widgets/auth_button.dart';
 import 'package:counsellor/features/home/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../common/snackbar.dart';
 import '../../../core/core.dart';
@@ -20,6 +21,18 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  late SharedPreferences _prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    _initSharedPreferences();
+  }
+
+  Future<void> _initSharedPreferences() async {
+    _prefs = await SharedPreferences.getInstance();
+  }
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -30,14 +43,17 @@ class _SignInScreenState extends State<SignInScreen> {
   void signIn() {
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
+
+    String? storedEmail = _prefs.getString('email');
+    String? storedPassword = _prefs.getString('password');
+
     if (email.isEmpty || password.isEmpty) {
       errorMessage(context: context, message: 'Please fill in all fields.');
-    } else if (!RegExp(r'^[\w-\.]+@student\.oauife\.edu\.ng$')
-        .hasMatch(email)) {
+    } else if (storedEmail == null || storedPassword == null) {
       errorMessage(
-        context: context,
-        message: 'Please enter a valid student email address.',
-      );
+          context: context, message: 'No account found. Please sign up.');
+    } else if (email != storedEmail || password != storedPassword) {
+      errorMessage(context: context, message: 'Invalid email or password.');
     } else {
       Navigator.pushNamed(context, HomePage.routeName);
     }
@@ -142,7 +158,8 @@ class _SignInScreenState extends State<SignInScreen> {
                           signIn();
                         },
                         text: 'Sign in',
-                        color: AppColors.primaryColor)
+                        color: AppColors.primaryColor),
+                    Space.height(32.h),
                   ],
                 ),
               ),

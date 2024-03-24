@@ -1,10 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/core.dart';
 
 class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String? titleText;
+  final String? titleText, imageFile;
   final bool implyLeading, action, titleYes;
   final VoidCallback? ontap;
   final IconData icon;
@@ -16,6 +18,7 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.icon = Icons.arrow_back,
     required this.titleYes,
     this.titleText,
+    this.imageFile,
   }) : super(key: key);
 
   @override
@@ -23,8 +26,10 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+        toolbarHeight: kToolbarHeight + 5.h,
+        shape: const LinearBorder(),
         automaticallyImplyLeading: implyLeading,
-        elevation: 0,
+        elevation: 0.0,
         leadingWidth: 100,
         backgroundColor: AppColors.primaryColor,
         centerTitle: true,
@@ -34,9 +39,21 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: [
                   const Text(''),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Image.asset(AssetPath.profile),
-                  ),
+                      padding: EdgeInsets.only(top: 8.h),
+                      child: Badge(
+                        smallSize: 12,
+                        backgroundColor: Colors.greenAccent,
+                        alignment: Alignment.bottomRight,
+                        child: Hero(
+                          tag: 'profile',
+                          child: CircleAvatar(
+                            radius: 25.r,
+                            backgroundImage: MemoryImage(
+                              File(imageFile!).readAsBytesSync(),
+                            ),
+                          ),
+                        ),
+                      )),
                 ],
               )
             : Padding(

@@ -70,7 +70,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return PageTransition(
         settings: routeSettings,
         child: const CounsellorsListPage(),
-        type: PageTransitionType.rotate,
+        type: PageTransitionType.leftToRight,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
@@ -78,7 +78,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return PageTransition(
         settings: routeSettings,
         child: const CounsellorInfoPage(),
-        type: PageTransitionType.rotate,
+        type: PageTransitionType.scale,
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
@@ -89,7 +89,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => Scaffold(
           body: Center(
               child: AppTheme.clText(
-                  '404', size: 20, _, fontWeight: FontWeight.w500)),
+                  '404 - 😒', size: 20, _, fontWeight: FontWeight.w500)),
         ),
       );
   }

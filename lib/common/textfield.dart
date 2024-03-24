@@ -9,7 +9,7 @@ class CLTextField extends StatefulWidget {
   final Widget? icon, prefix;
   final TextInputType? inputType;
   final bool isPassword;
-  final Color? border, inputColor, labelColor;
+  final Color? border, inputColor, labelColor, cursorColor;
   final Widget? suffixIcon;
 
   const CLTextField(
@@ -24,7 +24,7 @@ class CLTextField extends StatefulWidget {
       this.border,
       this.inputColor,
       this.labelColor,
-      this.suffixIcon});
+      this.suffixIcon, this.cursorColor});
 
   @override
   State<CLTextField> createState() => _CLTextFieldState();
@@ -98,7 +98,7 @@ class _CLTextFieldState extends State<CLTextField> {
             border: defaultOutlineInputBorder,
             enabledBorder: defaultOutlineInputBorder,
             focusedBorder: focusedOutlineInputBorder),
-        cursorColor: AppColors.primaryColor,
+        cursorColor: widget.cursorColor ?? AppColors.primaryColor,
       ),
     );
   }

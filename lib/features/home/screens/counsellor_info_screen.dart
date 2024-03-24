@@ -1,3 +1,4 @@
+import 'package:autoscale_tabbarview/autoscale_tabbarview.dart';
 import 'package:counsellor/common/button.dart';
 import 'package:counsellor/core/core.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,8 @@ class CounsellorInfoPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding:
+              const EdgeInsets.symmetric(horizontal: 24.0).copyWith(top: 20),
           child: Column(children: [
             Container(
               height: 203.h,
@@ -51,7 +53,7 @@ class CounsellorInfoPage extends StatelessWidget {
                             AppTheme.clText('Dr. Mrs. Adebayo Faith', context,
                                 size: 14, fontWeight: FontWeight.w500),
                             Space.height(5),
-                            AppTheme.clText('Psychologist', context,
+                            AppTheme.clText('Career Counsellor', context,
                                 textColor: AppColors.lightGrey, size: 12),
                             Space.height(20),
                             Image.asset(AssetPath.call),
@@ -78,6 +80,7 @@ class CounsellorInfoPage extends StatelessWidget {
                 child: Column(
                   children: [
                     TabBar(
+                        indicatorWeight: 3,
                         labelPadding: EdgeInsets.zero,
                         labelColor: AppColors.primaryColor,
                         labelStyle: Theme.of(context)
@@ -96,7 +99,7 @@ class CounsellorInfoPage extends StatelessWidget {
                                   decoration: const BoxDecoration(
                                       border: Border(
                                           bottom: BorderSide(
-                                              color: AppColors.darkGrey,
+                                              color: AppColors.lightGrey,
                                               width: 1))),
                                   child: const Tab(
                                     text: 'Overview',
@@ -112,7 +115,7 @@ class CounsellorInfoPage extends StatelessWidget {
                                   decoration: const BoxDecoration(
                                       border: Border(
                                           bottom: BorderSide(
-                                              color: AppColors.darkGrey,
+                                              color: AppColors.lightGrey,
                                               width: 1))),
                                   child: const Tab(
                                     text: 'Review',
@@ -122,63 +125,59 @@ class CounsellorInfoPage extends StatelessWidget {
                             ],
                           )
                         ]),
-                    SizedBox(
-                      height: 285.h,
-                      child: TabBarView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        children: [
-                          // Overview Tab View
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 20.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                    AutoScaleTabBarView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: [
+                        // Overview Tab View
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Space.height(20),
+                            AppTheme.clText('About', context,
+                                size: 16, fontWeight: FontWeight.w500),
+                            Space.height(10),
+                            AppTheme.clText(
+                                "Dr. Omoleye Noah is not just a psychologist; he's your trusted companion on the journey to mental well-being.With a passion for understanding the intricacies of the human mind, Dr. Noah offers a unique blend of empathy and scientific expertise through our counseling app. Drawing from years of experience and a commitment to destigmatizing mental health, Dr. Noah creates a safe space for you to explore your thoughts and emotions. Whether you're struggling with anxiety, depression, or simply seeking guidance, Dr. Noah provides personalized support tailored to your needs.",
+                                context,
+                                size: 13,
+                                textColor: AppColors.darkGrey.withOpacity(0.5)),
+                            Space.height(41),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                AppTheme.clText('About', context,
-                                    size: 16, fontWeight: FontWeight.w500),
-                                Space.height(10),
-                                AppTheme.clText(
-                                    "Dr. Omoleye Noah is not just a psychologist; he's your trusted companion on the journey to mental well-being.With a passion for understanding the intricacies of the human mind, Dr. Noah offers a unique blend of empathy and scientific expertise through our counseling app. Drawing from years of experience and a commitment to destigmatizing mental health, Dr. Noah creates a safe space for you to explore your thoughts and emotions. Whether you're struggling with anxiety, depression, or simply seeking guidance, Dr. Noah provides personalized support tailored to your needs.",
-                                    context,
-                                    size: 13,
-                                    textColor:
-                                        AppColors.darkGrey.withOpacity(0.5)),
+                                InfoCard(
+                                  color: AppColors.primaryColor,
+                                  title: 'Patients',
+                                  number: '10',
+                                  unit: 'k',
+                                ),
+                                InfoCard(
+                                  color: Colors.redAccent,
+                                  title: 'Experience',
+                                  number: '4',
+                                  unit: 'Yrs',
+                                ),
+                                InfoCard(
+                                  color: Colors.orangeAccent,
+                                  title: 'Rating',
+                                  number: '4.8',
+                                  unit: '',
+                                ),
                               ],
-                            ),
-                          ),
-                          // Reviews Tab View
-                          const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 20.0),
-                              child: Column(
-                                children: [],
-                              ))
-                        ],
-                      ),
+                            )
+                          ],
+                        ),
+
+                        // Reviews Tab View
+                        const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 20.0),
+                            child: Column(
+                              children: [],
+                            ))
+                      ],
                     ),
                   ],
                 )),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InfoCard(
-                  color: AppColors.primaryColor,
-                  title: 'Patients',
-                  number: '10',
-                  unit: 'k',
-                ),
-                InfoCard(
-                  color: Colors.redAccent,
-                  title: 'Experience',
-                  number: '4',
-                  unit: 'Yrs',
-                ),
-                InfoCard(
-                  color: Colors.orangeAccent,
-                  title: 'Rating',
-                  number: '4.8',
-                  unit: '',
-                ),
-              ],
-            )
           ]),
         ),
       ),
@@ -206,7 +205,7 @@ class InfoCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,

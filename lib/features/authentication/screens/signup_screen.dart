@@ -5,6 +5,7 @@ import 'package:counsellor/features/authentication/screens/otp_screen.dart';
 import 'package:counsellor/features/authentication/widgets/auth_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../core/core.dart';
 
@@ -19,6 +20,17 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  late SharedPreferences _prefs;
+  @override
+  void initState() {
+    super.initState();
+    _initSharedPreferences();
+  }
+
+  Future<void> _initSharedPreferences() async {
+    _prefs = await SharedPreferences.getInstance();
+  }
 
   @override
   void dispose() {
@@ -39,6 +51,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         message: 'Please enter a valid student email address.',
       );
     } else {
+       _prefs.setString('email', email);
+      _prefs.setString('password', password);
       Navigator.pushNamed(context, OtpScreen.routeName);
     }
   }
@@ -46,7 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false, 
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: SingleChildScrollView(
             reverse: true,

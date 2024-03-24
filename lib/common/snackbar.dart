@@ -4,7 +4,6 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../core/core.dart';
 
-
 errorMessage({required BuildContext context, required String message}) {
   showTopSnackBar(
       Overlay.of(context),
@@ -12,7 +11,7 @@ errorMessage({required BuildContext context, required String message}) {
         message: message,
         textStyle: Theme.of(context)
             .textTheme
-            .bodySmall!
+            .bodyMedium!
             .copyWith(color: AppColors.white),
       ),
       animationDuration: const Duration(milliseconds: 900));

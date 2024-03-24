@@ -32,6 +32,7 @@ class NavItem extends StatelessWidget {
         text,
         context,
         size: 16,
+        textColor: isSelected ? AppColors.primaryColor : AppColors.darkGrey,
         fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
       ),
       leading: SvgPicture.asset(

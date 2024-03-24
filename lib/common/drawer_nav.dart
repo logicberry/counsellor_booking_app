@@ -1,14 +1,19 @@
+import 'dart:io';
+
 import 'package:counsellor/common/button.dart';
 import 'package:counsellor/common/navite.dart';
+import 'package:counsellor/features/authentication/screens/screens.dart';
 import 'package:counsellor/features/home/screens/counsellors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/core.dart';
 
 class SideMenu extends StatefulWidget {
-  const SideMenu({super.key});
+  final String name, image;
+  const SideMenu({super.key, required this.name, required this.image});
 
   @override
   State<SideMenu> createState() => _SideMenuState();
@@ -42,6 +47,14 @@ class _SideMenuState extends State<SideMenu> {
     }
   }
 
+  void _signOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    // ignore: use_build_context_synchronously
+    Navigator.pushNamedAndRemoveUntil(
+        context, SignUpScreen.routeName, (Route<dynamic> route) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -59,13 +72,26 @@ class _SideMenuState extends State<SideMenu> {
                     width: 210.w,
                     child: Center(
                       child: ListTile(
-                        leading: CircleAvatar(
-                            radius: 30,
-                            backgroundColor: AppColors.white,
-                            child: Image.asset(AssetPath.profile)),
-                        title: AppTheme.clText('Malik', context,
+                        leading: Badge(
+                          padding: EdgeInsets.zero,
+                          backgroundColor: Colors.green,
+                          smallSize: 13,
+                          alignment: Alignment.bottomRight,
+                          child: Hero(
+                            transitionOnUserGestures: true,
+                            tag: 'Profile',
+                            child: CircleAvatar(
+                              radius: 25.r,
+                              backgroundColor: AppColors.white,
+                              backgroundImage: MemoryImage(
+                                File(widget.image).readAsBytesSync(),
+                              ),
+                            ),
+                          ),
+                        ),
+                        title: AppTheme.clText(widget.name, context,
                             size: 16, fontWeight: FontWeight.w600),
-                        subtitle: AppTheme.clText('@Malik', context,
+                        subtitle: AppTheme.clText('@${widget.name}', context,
                             size: 11, fontWeight: FontWeight.w400),
                       ),
                     )),
@@ -103,12 +129,12 @@ class _SideMenuState extends State<SideMenu> {
             isSelected: selectedItemIndex == 3,
             onTap: () => selectItem(3),
           ),
-          Space.height(100),
+          Space.height(150),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: CLButtton(
                 color: AppColors.white,
-                onTap: () {},
+                onTap: _signOut,
                 borderColor: AppColors.primaryColor,
                 child: Row(
                   children: [
