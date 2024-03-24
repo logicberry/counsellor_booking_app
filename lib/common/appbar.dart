@@ -4,17 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../core/core.dart';
 
 class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String? title;
+  final String? titleText;
   final bool implyLeading, action, titleYes;
   final VoidCallback? ontap;
   final IconData icon;
   const CLAppBar({
     Key? key,
-    this.title,
     this.action = false,
     this.implyLeading = false,
     this.ontap,
-    this.icon = Icons.arrow_back, required this.titleYes,
+    this.icon = Icons.arrow_back,
+    required this.titleYes,
+    this.titleText,
   }) : super(key: key);
 
   @override
@@ -26,6 +27,7 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         leadingWidth: 100,
         backgroundColor: AppColors.primaryColor,
+        centerTitle: true,
         title: titleYes
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -37,7 +39,15 @@ class CLAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ],
               )
-            : const Text(''),
+            : Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: AppTheme.clText(
+                  titleText ?? '',
+                  context,
+                  size: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
         titleSpacing: 20,
         leading: implyLeading
             ? Container(

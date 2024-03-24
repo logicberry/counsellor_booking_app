@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../core/core.dart';
 
@@ -6,7 +7,7 @@ class NavItem extends StatelessWidget {
   final String text;
   final bool isSelected;
   final VoidCallback onTap;
-  final IconData icon;
+  final String icon;
 
   const NavItem({
     super.key,
@@ -33,7 +34,7 @@ class NavItem extends StatelessWidget {
         size: 16,
         fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
       ),
-      leading: Icon(
+      leading: SvgPicture.asset(
         icon,
         color: isSelected ? AppColors.primaryColor : AppColors.darkGrey,
       ),

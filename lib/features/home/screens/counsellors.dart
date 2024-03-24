@@ -1,6 +1,6 @@
+import 'package:counsellor/common/appbar.dart';
 import 'package:counsellor/features/home/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/core.dart';
 
@@ -12,20 +12,12 @@ class CounsellorsListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          elevation: 0,
-          backgroundColor: AppColors.primaryColor,
-          title: AppTheme.clText('Counsellors', context, size: 18),
-          centerTitle: true,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              size: 20.h,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          )),
+      appBar: CLAppBar(
+        titleYes: false,
+        titleText: 'Counsellors List',
+        implyLeading: true,
+        ontap: () => Navigator.pop(context),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -40,7 +32,7 @@ class CounsellorsListPage extends StatelessWidget {
               const DoctorCard(
                   color: AppColors.ash,
                   image: AssetPath.maleDoctor,
-                  name: 'Dr. Malik Rasaq',
+                  name: 'Dr. Omoleye Noah',
                   profession: 'Psychologist'),
               Space.height(30),
               const DoctorCard(
@@ -52,7 +44,7 @@ class CounsellorsListPage extends StatelessWidget {
               const DoctorCard(
                   color: AppColors.ash,
                   image: AssetPath.maleDoctor,
-                  name: 'Dr. Malik Rasaq',
+                  name: 'Dr. Omoleye Noah',
                   profession: 'Psychologist'),
               Space.height(30),
               const DoctorCard(
@@ -64,7 +56,7 @@ class CounsellorsListPage extends StatelessWidget {
               const DoctorCard(
                   color: AppColors.ash,
                   image: AssetPath.maleDoctor,
-                  name: 'Dr. Malik Rasaq',
+                  name: 'Dr. Omoleye Noah',
                   profession: 'Psychologist'),
             ],
           ),

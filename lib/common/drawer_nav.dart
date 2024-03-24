@@ -3,6 +3,7 @@ import 'package:counsellor/common/navite.dart';
 import 'package:counsellor/features/home/screens/counsellors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../core/core.dart';
 
@@ -79,25 +80,25 @@ class _SideMenuState extends State<SideMenu> {
             ),
           ),
           NavItem(
-            icon: Icons.person_2_outlined,
+            icon: AssetPath.notification,
             text: 'List of Counsellors',
             isSelected: selectedItemIndex == 0,
             onTap: () => selectItem(0),
           ),
           NavItem(
-            icon: Icons.notifications_outlined,
+            icon: AssetPath.notification,
             text: 'Notifications',
             isSelected: selectedItemIndex == 1,
             onTap: () => selectItem(1),
           ),
           NavItem(
-            icon: Icons.support_agent,
+            icon: AssetPath.support,
             text: 'Support',
             isSelected: selectedItemIndex == 2,
             onTap: () => selectItem(2),
           ),
           NavItem(
-            icon: Icons.info_outline,
+            icon: AssetPath.about,
             text: 'About',
             isSelected: selectedItemIndex == 3,
             onTap: () => selectItem(3),
@@ -109,11 +110,17 @@ class _SideMenuState extends State<SideMenu> {
                 color: AppColors.white,
                 onTap: () {},
                 borderColor: AppColors.primaryColor,
-                child: AppTheme.clText(
-                  'Sign Out',
-                  context,
-                  textColor: AppColors.primaryColor,
-                  size: 16,
+                child: Row(
+                  children: [
+                    AppTheme.clText(
+                      'Sign Out',
+                      context,
+                      textColor: AppColors.primaryColor,
+                      size: 16,
+                    ),
+                    const Spacer(),
+                    SvgPicture.asset(AssetPath.logout)
+                  ],
                 )),
           )
         ]));

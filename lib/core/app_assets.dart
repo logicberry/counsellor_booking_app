@@ -19,4 +19,11 @@ class AssetPath {
   static const String ribbon = '${assetPath}ribbon.png';
   static const String maleDoctor = '${assetPath}male.png';
   static const String femaleDoctor = '${assetPath}female.png';
+  static const String call = '${assetPath}call.png';
+
+  // SVGs
+  static const String notification = 'assets/icons/notification.svg';
+  static const String support = 'assets/icons/support.svg';
+  static const String about = 'assets/icons/about.svg';
+  static const String logout = 'assets/icons/logout.svg';
 }

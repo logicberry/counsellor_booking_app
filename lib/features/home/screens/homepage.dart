@@ -43,7 +43,6 @@ class _HomePageState extends State<HomePage> {
       key: _scaffoldKey,
       appBar: CLAppBar(
           titleYes: true,
-          title: '',
           implyLeading: true,
           icon: Icons.menu,
           action: true,

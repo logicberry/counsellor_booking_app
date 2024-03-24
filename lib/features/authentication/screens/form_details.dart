@@ -5,12 +5,46 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../common/button.dart';
+import '../../../common/snackbar.dart';
 import '../../../core/core.dart';
 
-class PatientProfileScreen extends StatelessWidget {
+class PatientProfileScreen extends StatefulWidget {
   static const routeName = '/patientprofile-screen';
 
   const PatientProfileScreen({super.key});
+
+  @override
+  State<PatientProfileScreen> createState() => _PatientProfileScreenState();
+}
+
+class _PatientProfileScreenState extends State<PatientProfileScreen> {
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _dobController = TextEditingController();
+
+  @override
+  void dispose() {
+    _phoneController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _dobController.dispose();
+
+    super.dispose();
+  }
+
+  void next() {
+    String phone = _phoneController.text.trim();
+    String firstName = _firstNameController.text.trim();
+    String lastName = _lastNameController.text.trim();
+    String dob = _dobController.text.trim();
+
+    if (phone.isEmpty || firstName.isEmpty || lastName.isEmpty || dob.isEmpty) {
+      errorMessage(context: context, message: 'Please fill in all fields.');
+    } else {
+      Navigator.pushNamed(context, HomePage.routeName);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +99,7 @@ class PatientProfileScreen extends StatelessWidget {
                 Space.height(94),
                 CLButtton(
                   color: AppColors.white,
-                  onTap: () => Navigator.pushNamed(context, HomePage.routeName),
+                  onTap: () => next(),
                   borderColor: AppColors.primaryColor,
                   child: AppTheme.clText('Complete ✓', context,
                       size: 20, textColor: AppColors.primaryColor),

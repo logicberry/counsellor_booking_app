@@ -6,6 +6,7 @@ import 'package:page_transition/page_transition.dart';
 
 import 'core/core.dart';
 import 'features/authentication/screens/welcome.dart';
+import 'features/home/screens/counsellor_info_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -73,6 +74,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         duration: const Duration(seconds: 1),
         alignment: Alignment.bottomCenter,
       );
+    case CounsellorInfoPage.routeName:
+      return PageTransition(
+        settings: routeSettings,
+        child: const CounsellorInfoPage(),
+        type: PageTransitionType.rotate,
+        duration: const Duration(seconds: 1),
+        alignment: Alignment.bottomCenter,
+      );
 
     default:
       return MaterialPageRoute(
@@ -80,10 +89,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => Scaffold(
           body: Center(
               child: AppTheme.clText(
-                  'Screen no dey 😒',
-                  size: 20,
-                  _,
-                  fontWeight: FontWeight.w500)),
+                  '404', size: 20, _, fontWeight: FontWeight.w500)),
         ),
       );
   }
