@@ -46,3 +46,15 @@ flutter run
 ```
 
 
+## Authors
+
+- [@malikrasaq](https://www.github.com/malikrasaq)
+
+## Acknowledgements
+
+ - Design - Jide Ojenike
+
+
+
+## Badges
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
